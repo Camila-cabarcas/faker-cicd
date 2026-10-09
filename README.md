@@ -1,4 +1,13 @@
 [![CI/CD Pipeline](https://github.com/Camila-cabarcas/faker-cicd/actions/workflows/build.yml/badge.svg)](https://github.com/Camila-cabarcas/faker-cicd/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
 
 # faker-cicd
 
