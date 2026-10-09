@@ -87,6 +87,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>faker</finalName>
 	</build>
 
 </project>
