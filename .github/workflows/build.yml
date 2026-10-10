@@ -69,8 +69,9 @@ jobs:
         run: mvn -B clean verify
 
       # Upload JaCoCo coverage report to Coveralls
+      # Pinned to the full commit SHA of v2.3.8 (security best practice)
       - name: Upload coverage to Coveralls
-        uses: coverallsapp/github-action@v2
+        uses: coverallsapp/github-action@8d6379e14d29928660c4ba802d8e85393440b329 # v2.3.8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           file: target/site/jacoco/jacoco.xml
