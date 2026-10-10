@@ -1,13 +1,14 @@
-# Etapa 1: compilar el JAR con Maven y Java 17
-FROM maven:3.9-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY . .
-RUN mvn clean package -DskipTests
-
-# Etapa 2: imagen liviana solo con Java para ejecutar
+# Imagen liviana solo con Java 17 para ejecutar
 FROM eclipse-temurin:17-jre-jammy
+
+# Crear un usuario sin privilegios (no ejecutar como root)
+RUN groupadd --system spring && useradd --system --gid spring spring
+
 WORKDIR /app
-# Copia el JAR de la etapa 'build' a la etapa actual
-COPY --from=build /app/target/faker.jar faker.jar
+
+# Copiar SOLO el JAR que construyó el pipeline (artefacto)
+COPY target/faker.jar faker.jar
+
+USER spring
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","faker.jar"]

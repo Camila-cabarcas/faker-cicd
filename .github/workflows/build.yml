@@ -4,11 +4,12 @@ name: CI/CD Pipeline
 on:
   # Manually trigger workflow runs
   workflow_dispatch:
-  # Trigger the workflow on push to main and to the feature branch
+  # Trigger the workflow on push to main and feature branches
   push:
     branches:
       - main
       - mi-rama
+      - 'feature/**'
   # Trigger the workflow on pull requests targeting main
   pull_request:
     branches:
@@ -105,14 +106,14 @@ jobs:
       - name: Build with Maven
         run: mvn -B package -DskipTests --file pom.xml
 
-      # Upload the JAR so other jobs (like Deploy) can use it
+      # Upload the JAR as a workflow artifact
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: artifact
           path: target/faker.jar
 
-      # Build the Docker image and push it to Docker Hub (only from main)
+      # Build the Docker image with the JAR and push it to Docker Hub (only from main)
       - name: Build & push Docker image
         if: github.ref == 'refs/heads/main'
         uses: mr-smithers-excellent/docker-build-push@v6
@@ -123,3 +124,18 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+  # Deploy's job
+  deploy:
+    # Depends on build's job
+    needs: build
+    name: Deploy to Render
+    # Only deploy when code reaches main (trunk based)
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      # Ask Render to pull the new image from Docker Hub and redeploy
+      - name: Trigger Render deploy
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: curl -fsS -X POST "$RENDER_DEPLOY_HOOK_URL" > /dev/null
