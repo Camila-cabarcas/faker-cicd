@@ -1,3 +1,4 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/Camila-cabarcas/faker-cicd/badge.svg)](https://snyk.io/test/github/Camila-cabarcas/faker-cicd)
 [![CI/CD Pipeline](https://github.com/Camila-cabarcas/faker-cicd/actions/workflows/build.yml/badge.svg)](https://github.com/Camila-cabarcas/faker-cicd/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
