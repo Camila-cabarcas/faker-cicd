@@ -123,9 +123,10 @@ jobs:
           path: target/faker.jar
 
       # Build the Docker image with the JAR and push it to Docker Hub (only from main)
+      # Pinned to the full commit SHA of v6.11 (security best practice)
       - name: Build & push Docker image
         if: github.ref == 'refs/heads/main'
-        uses: mr-smithers-excellent/docker-build-push@v6
+        uses: mr-smithers-excellent/docker-build-push@05b44e1dd9e03f78e8689bd1a61c750f17907ffe # v6.11
         with:
           image: camilacabarcas/faker-cicd
           tags: latest
