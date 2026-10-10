@@ -1,5 +1,6 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/Camila-cabarcas/faker-cicd/badge.svg)](https://snyk.io/test/github/Camila-cabarcas/faker-cicd)
 [![CI/CD Pipeline](https://github.com/Camila-cabarcas/faker-cicd/actions/workflows/build.yml/badge.svg)](https://github.com/Camila-cabarcas/faker-cicd/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/Camila-cabarcas/faker-cicd/badge.svg?branch=main)](https://coveralls.io/github/Camila-cabarcas/faker-cicd?branch=main)
+[![Known Vulnerabilities](https://snyk.io/test/github/Camila-cabarcas/faker-cicd/badge.svg)](https://snyk.io/test/github/Camila-cabarcas/faker-cicd)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Camila-cabarcas_faker-cicd&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Camila-cabarcas_faker-cicd)
@@ -20,7 +21,9 @@ Implementation of a Simple App with the next operations:
 * Get application version
 * Health check
 
-Including integration with GitHub Actions, SonarQube (SonarCloud), Coveralls and Snyk.
+Including integration with GitHub Actions, SonarQube (SonarCloud), Coveralls and Snyk, with continuous deployment to Render through Docker Hub.
+
+**Live demo:** https://faker-cicd.onrender.com
 
 ### Folders Structure
 
@@ -51,5 +54,15 @@ $ ./mvnw clean install
 Execute:
 
 ```shell
-$ ./mvnw -B package -DskipTests --file pom.xml
+$ ./mvnw clean test
+```
+
+The JaCoCo coverage report is generated in `target/site/jacoco/index.html`.
+
+### How to run it with Docker
+
+Execute:
+
+```shell
+$ docker run -p 8080:8080 camilacabarcas/faker-cicd
 ```
