@@ -4,8 +4,13 @@ name: CI/CD Pipeline
 on:
   # Manually trigger workflow runs
   workflow_dispatch:
-  # Trigger the workflow on push to the main branch
+  # Trigger the workflow on push to main and to the feature branch
   push:
+    branches:
+      - main
+      - mi-rama
+  # Trigger the workflow on pull requests targeting main
+  pull_request:
     branches:
       - main
 
@@ -107,8 +112,9 @@ jobs:
           name: artifact
           path: target/faker.jar
 
-      # Build the Docker image and push it to Docker Hub
+      # Build the Docker image and push it to Docker Hub (only from main)
       - name: Build & push Docker image
+        if: github.ref == 'refs/heads/main'
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: camilacabarcas/faker-cicd
